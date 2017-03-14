@@ -38,10 +38,11 @@ app.post("/upload", function(req, res) {
         .then((results) => {
             const labels = results[0];
 
-            console.log('Labels:');
-            labels.forEach((label) => console.log(label));
+            console.log('Label Object:');
+            console.log(results[1].responses[0].labelAnnotations);
 
-            res.send(labels)
+            console.log("Result: " + labels[0]);
+
+            res.send(results[1].responses[0].labelAnnotations);
         });
-    //res.send(req.files.file.name);
-})
+});
